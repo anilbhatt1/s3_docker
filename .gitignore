@@ -2,4 +2,5 @@
 /.idea
 *.pt
 /test
-*.jpg
+/__pycache__
+*.docx

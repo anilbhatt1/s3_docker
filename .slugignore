@@ -1,0 +1,9 @@
+*.ipynb
+*.IPYNB
+*.docx
+*.png
+# we dont need these as we are pushing the docker image
+/templates
+imagenet_classes.txt
+models.py
+app.py
