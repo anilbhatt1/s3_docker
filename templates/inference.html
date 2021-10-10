@@ -2,6 +2,13 @@
 
 {% block content %}
     {% if predictions and img_data %}
+
+        <h4> Previous five inference results as listed below </h4><br/>
+        {% for num, prev in enumerate(prev_results, 1) %}
+           <strong>{{ num }}.</strong>  Time-Stamp : {{ prev[-1] }} | Confidence : {{ prev[1] }} | Inference : {{ prev[0] }}<br/>
+        {% endfor %}
+        <br/><br/>
+
         <h3> Image Classification result as below !</h3>
         <br/><br/>
         {% for i in range(length) %}
@@ -13,5 +20,12 @@
             </p>
         {% endfor %}
         <br/><br/>
+
+    {% else %}
+        <h3> Error !</h3>
+        <br/>
+        <p class="card-text">
+            Exception : {{ error_msg }}
     {% endif %}
+
 {% endblock %}

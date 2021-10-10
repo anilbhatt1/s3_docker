@@ -1,6 +1,7 @@
 Flask==2.0.1
 Flask-WTF==0.15.1
 googledrivedownloader==0.4
+pandas
 gunicorn==20.1.0
 itsdangerous==2.0.1
 Jinja2==3.0.1

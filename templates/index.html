@@ -8,27 +8,44 @@
             <p class="lead">This project is aimed to help Pytorch machine learning developers to quickly build a Flask
                 web app
                 in a Docker container ready to be deployed. <br>
-                <a href="https://github.com/imadtoubal/Pytorch-Flask-Docker-App"> View on GitHub</a>
+                <a href="https://github.com/anilbhatt1/s3_docker"> View on GitHub</a>
             </p>
         </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="mb-2 col-md-6 offset-md-3">
-        <form method="post" action="/infer" enctype="multipart/form-data">
-        <dl>
-		    <p>
-			    <input type="file" name="files[]" multiple="true" autocomplete="off" required>
-		    </p>
-        </dl>
-            <p>
-		        <input type="submit" value="Upload">
-	        </p>
-        </form>
-    </div>
-
     <div class="row">
+        <div>
+                <div class="cards" style="width: 30%; box-shadow: 2px 2px 20px black; border-radius: 5px; margin: 2%; position:relative;float:right">
+                    <div class="result" style="text-align:center;padding:10px">
+                        <h1 style="font-size:10px">Sample Image Results</h1>
+                    </div>
+                    <div class="image">
+                        <img src="{{url_for('static', filename='uploads/'+'sample_upload_img.jpg')}}" id="inp_img_tag"
+                             style="width:100%;border-top-right-radius:5px;border-top-left-radius:5px">
+                    </div>
+                    <div class="result" style="text-align:center;padding:10px">
+                        <h1 style="font-size:10px">{{sample_result}}</h1>
+                    </div>
+                </div>
+        </div>
+
+        <div class="mb-2 col-md-6 offset-md-3">
+            <form method="post" action="/infer" enctype="multipart/form-data">
+            <dl>
+		        <p>
+			        <input type="file" name="files[]" multiple="true" autocomplete="off" required>
+                    <strong>Choose upto 3 jpg/jpeg files </strong>
+		        </p>
+            </dl>
+                <p>
+		            <input type="submit" value="Upload & Infer">
+	            </p>
+            </form>
+        </div>
+
+
         <div class="col-sm-6 offset-sm-3 my-5">
              <center>
                 <p class="text-muted">
