@@ -5,6 +5,7 @@ from math import floor
 from werkzeug.utils import secure_filename
 import io
 import base64
+import sys
 from PIL import Image
 import pandas as pd
 from datetime import datetime
@@ -24,7 +25,8 @@ def allowed_file(filename):
 
 @app.route('/')
 def index():
-    file_name = 'sample_upload_img.jpg'
+    #file_name = 'sample_upload_img.jpg'
+    file_name = app.config['sample_img']
     file_infer = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
     inference, confidence = model.infer(file_infer)
     confidence = floor(confidence * 10_000) / 100
@@ -100,6 +102,7 @@ def save_inference_log(pred_list):
 
 if __name__ == '__main__':
     app.debug = True
-    port = int(os.environ.get("PORT",5000)) # Use heroku supplied port else 5000
+    port = int(os.environ.get("PORT",80)) # Use heroku supplied port else 5000
+    app.config['sample_img'] = sys.argv[1]
     app.run(host='0.0.0.0', port=port, debug=True)
 

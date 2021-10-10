@@ -4,3 +4,9 @@
 /test
 /__pycache__
 Class Chat.docx
+/templates/base_backup.html
+/templates/index_backup.html
+/templates/inference_backup.html
+app_backup.py
+Dockerfile_backup
+Quiz_Completion.png
