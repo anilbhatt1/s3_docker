@@ -3,13 +3,13 @@
 {% block content %}
     {% if predictions and img_data %}
 
-        <h4> Previous five inference results as listed below </h4><br/>
+        <h4> Previous five inference results from mobilent image classification as listed below </h4><br/>
         {% for num, prev in enumerate(prev_results, 1) %}
            <strong>{{ num }}.</strong>  Time-Stamp : {{ prev[-1] }} | Confidence : {{ prev[1] }} | Inference : {{ prev[0] }}<br/>
         {% endfor %}
         <br/><br/>
 
-        <h3> Image Classification result as below !</h3>
+        <h3> Mobilenet Image Classification result as below !</h3>
         <br/><br/>
         {% for i in range(length) %}
             <img src="data:image/jpeg;base64,{{ img_data[i] }}">
