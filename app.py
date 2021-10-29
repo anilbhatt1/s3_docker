@@ -25,13 +25,17 @@ def allowed_file(filename):
 
 @app.route('/')
 def index():
+    return render_template('index.html')
+
+@app.route('/Mobilenet-Classify')
+def mobilenet_classify():
     #file_name = 'sample_upload_img.jpg'
     file_name = app.config['sample_img']
     file_infer = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
     inference, confidence = model.infer(file_infer)
     confidence = floor(confidence * 10_000) / 100
     result = str(inference) + ", Confidence: " + str(confidence)
-    return render_template('index.html', sample_result=result)
+    return render_template('mobilenet_classify.html', sample_result=result)
 
 @app.route('/about')
 def about():
